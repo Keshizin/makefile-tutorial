@@ -31,3 +31,14 @@ No quarto commit, incluímos as variáveis no makefile para evitar repetições 
 
 ##### Quinto commit
 Conforme o projeto vai crescendo, precisamos adicionar novos arquivos de código-fonte ou outras bibliotecas. Alteramos o nosso makefile para que ele possa incluir novos arquivos e criar novas depedências de forma automática.
+
+##### Sexto commit
+Alteramos novamente o makefile para incluir as dependências referentes ao header também. Utilizamos a flag -MM do comando GCC para criar arquivos temporários de makefile e incluímos esses arquivos no nosso makefile. Dessa forma, sabemos exatamente quais são todas as dependências para gerar um arquivo .o.
+
+### Conclusão
+Depois de todas essas alterações, conseguimos um makefile bastante completo e genérico. Podemos incluir novos arquivos de código-fonte facilmente no projeto sem a necessidade de alterar o nosso makefile para compilar apenas os arquivos necessários.
+
+Todo este conteúdo foi baseado no tutorial criado por Darcamo. Fica aqui os meus sincero agradecimentos para ele, já que só consegui aprender a utilizar o makefile utilizando o seu tutorial. Obrigado!
+
+Link do tutorial de Darcamo:
+https://ubuntuforum-pt.org/index.php?topic=21155.0
