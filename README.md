@@ -19,3 +19,6 @@ A evolução de como foi criado este makefile pode ser acompanhada pelos commits
 O projeto é compilado sem o uso de nenhum makefile. Ou seja, utilizamos os comandos de compilação (GCC) diretamente no terminal.
 
 `g++ source/source_code_1.cpp source/source_code_2.cpp source/main.cpp -Iinclude -o bin/teste.exe -Wall`
+
+##### Segundo commit
+Criamos o primeiro makefile. Apenas copiamos o comando de compilação utilizado anteriormente no arquivo makefile. Ainda não estamos utilizando todo o poder que o make oferece para construir nosso programa.
