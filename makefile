@@ -8,22 +8,20 @@ TMP_DIR=temp
 
 # flags que devem ser passados para o compilador
 OUTPUT_NAME=teste.exe
+CPPSOURCES=$(wildcard $(SRC_DIR)/*.cpp)
+OBJFILES=$(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(CPPSOURCES))
 
 INC_FLAGS=-I$(INC_DIR)
 
 all: $(BIN_DIR)/$(OUTPUT_NAME)
 
-$(BIN_DIR)/$(OUTPUT_NAME): $(OBJ_DIR)/source_code_1.o $(OBJ_DIR)/source_code_2.o $(OBJ_DIR)/main.o
-	g++ $(OBJ_DIR)/source_code_1.o $(OBJ_DIR)/source_code_2.o $(OBJ_DIR)/main.o -o bin/teste.exe -Wall
+$(BIN_DIR)/$(OUTPUT_NAME): $(OBJFILES)
+	@echo . Gerando executavel final: $@
+	g++ $^ -o $@ -Wall
 
-$(OBJ_DIR)/source_code_1.o: $(SRC_DIR)/source_code_1.cpp $(INC_DIR)/header1.h
-	g++ -c $(SRC_DIR)/source_code_1.cpp $(INC_FLAGS) -o $(OBJ_DIR)/source_code_1.o
-
-$(OBJ_DIR)/source_code_2.o: $(SRC_DIR)/source_code_2.cpp $(INC_DIR)/header2.h $(INC_DIR)/header1.h
-	g++ -c $(SRC_DIR)/source_code_2.cpp $(INC_FLAGS) -o $(OBJ_DIR)/source_code_2.o
-
-$(OBJ_DIR)/main.o: $(SRC_DIR)/main.cpp $(INC_DIR)/header2.h $(INC_DIR)/header1.h
-	g++ -c $(SRC_DIR)/main.cpp $(INC_FLAGS) -o $(OBJ_DIR)/main.o
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
+	@echo . Compilando $<
+	@g++ -c $< $(INC_FLAGS) -o $@
 
 clean-exe:
 	@echo . Deletando o executavel
@@ -43,3 +41,8 @@ clean-all:
 	@echo . Limpando tudo
 	$(MAKE) clean-exe
 	$(MAKE) clean-obj
+
+remade:
+	@echo REMADE
+	$(MAKE) clean-all
+	$(MAKE) all

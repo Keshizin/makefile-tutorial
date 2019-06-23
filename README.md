@@ -28,3 +28,6 @@ Incluindo as dependências no makefile. Esta funcionalidade garante o make possa
 
 ##### Quarto commit
 No quarto commit, incluímos as variáveis no makefile para evitar repetições como os nomes de diretórios. Se houver a necessidade de mudar o nome de algum diretório, podemos alterar facilmente no makefile mudando apenas a sua variável.
+
+##### Quinto commit
+Conforme o projeto vai crescendo, precisamos adicionar novos arquivos de código-fonte ou outras bibliotecas. Alteramos o nosso makefile para que ele possa incluir novos arquivos e criar novas depedências de forma automática.
