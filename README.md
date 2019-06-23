@@ -23,5 +23,8 @@ O projeto é compilado sem o uso de nenhum makefile. Ou seja, utilizamos os coma
 ##### Segundo commit
 Criamos o primeiro makefile. Apenas copiamos o comando de compilação utilizado anteriormente no arquivo makefile. Ainda não estamos utilizando todo o poder que o make oferece para construir nosso programa.
 
-###### Terceiro commit
-Incluindo as dependências no makefile. Esta funcionalidade garante que o make possa compilar apenas os arquivos necessários.
+##### Terceiro commit
+Incluindo as dependências no makefile. Esta funcionalidade garante o make possa compilar apenas os arquivos necessários.
+
+##### Quarto commit
+No quarto commit, incluímos as variáveis no makefile para evitar repetições como os nomes de diretórios. Se houver a necessidade de mudar o nome de algum diretório, podemos alterar facilmente no makefile mudando apenas a sua variável.
